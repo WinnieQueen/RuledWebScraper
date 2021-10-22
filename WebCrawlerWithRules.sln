@@ -3,13 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31727.386
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebCrawlerWithRules", "WebCrawlerWithRules.csproj", "{23EF1DDD-296B-4DA0-87F5-6254B3134553}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorWebCrawler.Server", "BlazorWebCrawler\Server\BlazorWebCrawler.Server.csproj", "{4E3E5B52-FC98-4443-8D17-81676A3357F4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorWebAssemblyCrawlerWithRules.Server", "BlazorWebAssemblyCrawlerWithRules\Server\BlazorWebAssemblyCrawlerWithRules.Server.csproj", "{EE5D309A-3EBD-4ED1-B54B-EA179C0F6565}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorWebCrawler.Client", "BlazorWebCrawler\Client\BlazorWebCrawler.Client.csproj", "{5570521E-CA09-4D44-8A28-8533011EA5E6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorWebAssemblyCrawlerWithRules.Client", "BlazorWebAssemblyCrawlerWithRules\Client\BlazorWebAssemblyCrawlerWithRules.Client.csproj", "{A054AD56-EDFC-4F50-A94F-E946816BD00E}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorWebAssemblyCrawlerWithRules.Shared", "BlazorWebAssemblyCrawlerWithRules\Shared\BlazorWebAssemblyCrawlerWithRules.Shared.csproj", "{76F819ED-960E-4945-8ADE-11D58D93B83C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorWebCrawler.Shared", "BlazorWebCrawler\Shared\BlazorWebCrawler.Shared.csproj", "{FDCECC27-50C9-4FCD-8048-A681B75F1017}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,22 +15,18 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{23EF1DDD-296B-4DA0-87F5-6254B3134553}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{23EF1DDD-296B-4DA0-87F5-6254B3134553}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{23EF1DDD-296B-4DA0-87F5-6254B3134553}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{23EF1DDD-296B-4DA0-87F5-6254B3134553}.Release|Any CPU.Build.0 = Release|Any CPU
-		{EE5D309A-3EBD-4ED1-B54B-EA179C0F6565}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{EE5D309A-3EBD-4ED1-B54B-EA179C0F6565}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{EE5D309A-3EBD-4ED1-B54B-EA179C0F6565}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{EE5D309A-3EBD-4ED1-B54B-EA179C0F6565}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A054AD56-EDFC-4F50-A94F-E946816BD00E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A054AD56-EDFC-4F50-A94F-E946816BD00E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A054AD56-EDFC-4F50-A94F-E946816BD00E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A054AD56-EDFC-4F50-A94F-E946816BD00E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{76F819ED-960E-4945-8ADE-11D58D93B83C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{76F819ED-960E-4945-8ADE-11D58D93B83C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{76F819ED-960E-4945-8ADE-11D58D93B83C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{76F819ED-960E-4945-8ADE-11D58D93B83C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4E3E5B52-FC98-4443-8D17-81676A3357F4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4E3E5B52-FC98-4443-8D17-81676A3357F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4E3E5B52-FC98-4443-8D17-81676A3357F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4E3E5B52-FC98-4443-8D17-81676A3357F4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5570521E-CA09-4D44-8A28-8533011EA5E6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5570521E-CA09-4D44-8A28-8533011EA5E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5570521E-CA09-4D44-8A28-8533011EA5E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5570521E-CA09-4D44-8A28-8533011EA5E6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FDCECC27-50C9-4FCD-8048-A681B75F1017}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FDCECC27-50C9-4FCD-8048-A681B75F1017}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FDCECC27-50C9-4FCD-8048-A681B75F1017}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FDCECC27-50C9-4FCD-8048-A681B75F1017}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
