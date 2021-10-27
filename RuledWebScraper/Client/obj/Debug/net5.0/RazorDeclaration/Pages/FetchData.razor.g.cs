@@ -84,7 +84,7 @@ using RuledWebScraper.Client.Shared;
 #nullable disable
 #nullable restore
 #line 2 "C:\Users\ashlynn.hilliard\Desktop\WebCrawlerWithRules\RuledWebScraper\Client\Pages\FetchData.razor"
-using RuledWebScraper.Shared;
+using RuledWebScraper.Shared.Models;
 
 #line default
 #line hidden

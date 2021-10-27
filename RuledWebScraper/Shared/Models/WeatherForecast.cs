@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace RuledWebScraper.Shared {
+namespace RuledWebScraper.Shared.Models {
   public class WeatherForecast {
     public DateTime Date { get; set; }
 
