@@ -19,4 +19,8 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\RuledWebScraper\Shared\RuledWebScraper.Shared.csproj" />
+  </ItemGroup>
+
 </Project>
