@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "Mi3K9l40o9ZMJtiR8lueFhaB1nyCdPQLDc+o1c9Ja4YUUAo4V889tPLGZALnvxilc+9+/hGDUbS2poKAOth9Lw==",
+  "dgSpecHash": "rP/+4vBZW5lx7+JkqaKLufF8+pPlyQ9FI/Fyp/FuDsJc+q4HYDAMxnRgR28esyX+QBts8D4KKMM0lngi3/6YtQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\ashlynn.hilliard\\Desktop\\WebCrawlerWithRules\\RuledWebScraper\\Server\\RuledWebScraper.Server.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\ashlynn.hilliard\\.nuget\\packages\\htmlagilitypack\\1.11.37\\htmlagilitypack.1.11.37.nupkg.sha512",
     "C:\\Users\\ashlynn.hilliard\\.nuget\\packages\\microsoft.aspnetcore.authorization\\5.0.10\\microsoft.aspnetcore.authorization.5.0.10.nupkg.sha512",
     "C:\\Users\\ashlynn.hilliard\\.nuget\\packages\\microsoft.aspnetcore.components\\5.0.10\\microsoft.aspnetcore.components.5.0.10.nupkg.sha512",
     "C:\\Users\\ashlynn.hilliard\\.nuget\\packages\\microsoft.aspnetcore.components.analyzers\\5.0.10\\microsoft.aspnetcore.components.analyzers.5.0.10.nupkg.sha512",

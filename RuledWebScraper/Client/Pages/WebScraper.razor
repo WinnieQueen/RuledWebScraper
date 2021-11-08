@@ -1,0 +1,19 @@
+﻿@page "/webscraper"
+@using RuledWebScraper.Shared.Models
+
+<h1>Scrape Web</h1>
+
+
+<EditForm Model="@webScraper" OnSubmit="@HandleSubmit">
+    <InputText id="url" />
+    <InputText id="attributes" />
+    <button type="submit" >Submit</button>
+</EditForm>
+
+@code {
+  private WebScraper webScraper = new();
+
+  private void HandleSubmit() {
+
+    }
+}
