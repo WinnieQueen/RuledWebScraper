@@ -12,6 +12,10 @@ using System.Diagnostics;
 namespace RuledWebScraper.Server {
   public class Program {
     public static void Main(string[] args) {
+      //WebScraper scraper = new WebScraper("https://cbracco.github.io/html5-test-page/", "id");
+      //Dictionary<int, bool> results;
+      //scraper.AllTagsContainAttributes(scraper.GetHtmlFromPage().Result, out results, "id");
+
       CreateHostBuilder(args).Build().Run();
 
     }

@@ -7,7 +7,7 @@
     <InputText @bind-Value="url">Url</InputText>
     <InputText @bind-Value="attributes">Attributes</InputText>
     <button type="submit">Submit</button>
-    <InputTextArea readonly="readonly" @bind-Value="txt" width="5000" height="5000">Text</InputTextArea>
+    <InputTextArea readonly="readonly" @bind-Value="txt">Text</InputTextArea>
 </EditForm>
 
 @code {
@@ -17,8 +17,7 @@
     private string txt { get; set; } = "Submit a URL and some attributes (separated by spaces)";
 
 
-    private async void HandleSubmit()
-    {
+    private async void HandleSubmit() {
         string[] atts = attributes.Split(" ");
         webScraper.SetUrl(url);
         webScraper.SetRequired(atts);
@@ -30,14 +29,11 @@
 
         webScraper.AllTagsContainAttributes(html, out results, atts);
 
-        using (System.IO.StringReader reader = new System.IO.StringReader(html))
-        {
+        using (System.IO.StringReader reader = new System.IO.StringReader(html)) {
             txt = "";
-            for (int i = 0; i < results.Count; i++)
-            {
+            for (int i = 0; i < results.Count; i++) {
                 txt = txt + "\n" + results[i] + reader.ReadLine();
                 i++;
-
             }
         }
     }
