@@ -1,19 +1,44 @@
 ﻿@page "/webscraper"
-@using RuledWebScraper.Shared.Models
 
 <h1>Scrape Web</h1>
 
 
-<EditForm Model="@webScraper" OnSubmit="@HandleSubmit">
-    <InputText id="url" />
-    <InputText id="attributes" />
-    <button type="submit" >Submit</button>
+<EditForm OnSubmit="HandleSubmit" Model="webScraper">
+    <InputText @bind-Value="url">Url</InputText>
+    <InputText @bind-Value="attributes">Attributes</InputText>
+    <button type="submit">Submit</button>
+    <InputTextArea readonly="readonly" @bind-Value="txt" width="5000" height="5000">Text</InputTextArea>
 </EditForm>
 
 @code {
-  private WebScraper webScraper = new();
+    RuledWebScraper.Shared.Models.WebScraper webScraper = new RuledWebScraper.Shared.Models.WebScraper("");
+    private string url { get; set; }
+    private string attributes { get; set; }
+    private string txt { get; set; } = "Submit a URL and some attributes (separated by spaces)";
 
-  private void HandleSubmit() {
 
+    private async void HandleSubmit()
+    {
+        string[] atts = attributes.Split(" ");
+        webScraper.SetUrl(url);
+        webScraper.SetRequired(atts);
+        webScraper = new RuledWebScraper.Shared.Models.WebScraper(url, atts);
+
+        Dictionary<int, bool> results = new Dictionary<int, bool>();
+
+        var html = await webScraper.GetHtmlFromPage();
+
+        webScraper.AllTagsContainAttributes(html, out results, atts);
+
+        using (System.IO.StringReader reader = new System.IO.StringReader(html))
+        {
+            txt = "";
+            for (int i = 0; i < results.Count; i++)
+            {
+                txt = txt + "\n" + results[i] + reader.ReadLine();
+                i++;
+
+            }
+        }
     }
 }

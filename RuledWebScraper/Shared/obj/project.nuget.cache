@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "hYrK5ZG02QcPv9VPNYDmTa+de4Ip9qM5n6jFVLNCmlG5NNxYpe7xYXkieYBy4dGOCMaXrfDvjY1pgYr4TvQz5w==",
+  "dgSpecHash": "6gwxJJZMNi7D9ZNlpbBTWSc2rPDDjlJmUqKSKZPDy5kGanYOFJ8OhtJr1y1iWB7kC0iKRXYebMJZM9j4lseDPg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\ashlynn.hilliard\\Desktop\\WebCrawlerWithRules\\RuledWebScraper\\Shared\\RuledWebScraper.Shared.csproj",
+  "projectFilePath": "C:\\Users\\Ash\\Desktop\\New folder\\RuledWebScraper\\Shared\\RuledWebScraper.Shared.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\ashlynn.hilliard\\.nuget\\packages\\htmlagilitypack\\1.11.37\\htmlagilitypack.1.11.37.nupkg.sha512"
+    "C:\\Users\\Ash\\.nuget\\packages\\htmlagilitypack\\1.11.37\\htmlagilitypack.1.11.37.nupkg.sha512"
   ],
   "logs": []
 }

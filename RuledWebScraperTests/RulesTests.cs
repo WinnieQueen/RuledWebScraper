@@ -8,7 +8,7 @@ namespace RuledWebScraperTests {
 
     [Fact]
     public void CanCreateScraper() {
-      WebScraper scraper = new();
+      WebScraper scraper = new("");
 
       Assert.NotNull(scraper);
     }
@@ -40,7 +40,7 @@ namespace RuledWebScraperTests {
     }
     [Fact]
     public void CanSetUrlAfterCreation() {
-      WebScraper scraper = new();
+      WebScraper scraper = new("");
       scraper.SetUrl(sampleLink);
 
       Assert.Equal(sampleLink, scraper.GetUrl());
@@ -49,7 +49,7 @@ namespace RuledWebScraperTests {
     [Fact]
     public void CanSetRulesAfterCreation() {
       string[] expected = { "id", "class" };
-      WebScraper scraper = new();
+      WebScraper scraper = new("");
       scraper.SetRequired(expected);
 
       Assert.Equal(expected, scraper.GetRequired());
@@ -58,7 +58,7 @@ namespace RuledWebScraperTests {
     [Fact]
     public void CanAddARule() {
       List<string> expected = new() { "id" };
-      WebScraper scraper = new();
+      WebScraper scraper = new("");
 
       scraper.AddRules("id");
       Assert.Equal(expected, scraper.GetRequired());
@@ -67,7 +67,7 @@ namespace RuledWebScraperTests {
     [Fact]
     public void CanAddMultipleRules() {
       List<string> expected = new() { "id", "class" };
-      WebScraper scraper = new();
+      WebScraper scraper = new("");
 
       scraper.AddRules("id", "class");
       Assert.Equal(expected, scraper.GetRequired());
