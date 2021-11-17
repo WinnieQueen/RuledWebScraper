@@ -1,7 +1,6 @@
 ﻿using RuledWebScraper.Shared.Models;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using Xunit;
 
 namespace RuledWebScraperTests {
@@ -40,12 +39,9 @@ namespace RuledWebScraperTests {
       try {
         string html = "<p id='myId'> </p>";
         string attribute = "id";
-        bool expected = true;
-        Dictionary<int, bool> results = new Dictionary<int, bool>();
-        bool actual = scraper.AllTagsContainAttributes(html, out results, attribute);
-        Assert.Equal(expected, actual);
+        Dictionary<int, TestedTag> results = scraper.TestAllTags(html, attribute);
         Assert.NotEmpty(results);
-        Assert.True(results[0]);
+        Assert.True(results[0].IsPassing());
       } catch (NullReferenceException e) {
         throw new SkipException("An unexpected exception was thrown, methods cannot be tested." + e.Message, e);
       }
@@ -63,13 +59,10 @@ namespace RuledWebScraperTests {
       try {
         string html = "<p> </p>";
         string attribute = "id";
-        bool expected = false;
-        Dictionary<int, bool> results = new Dictionary<int, bool>();
-        bool actual = scraper.AllTagsContainAttributes(html, out results, attribute);
+        Dictionary<int, TestedTag> results = scraper.TestAllTags(html, attribute);
 
-        Assert.Equal(expected, actual);
         Assert.NotEmpty(results);
-        Assert.False(results[0]);
+        Assert.False(results[0].IsPassing());
       } catch (NullReferenceException e) {
         throw new SkipException("An unexpected exception was thrown, methods cannot be tested." + e.Message, e);
       }

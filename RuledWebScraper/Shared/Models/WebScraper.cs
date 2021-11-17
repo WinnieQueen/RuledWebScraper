@@ -1,20 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
-using System.IO;
 using System.Linq;
-using System.Net;
 using System.Net.Http;
-using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
-using HtmlAgilityPack;
 
 namespace RuledWebScraper.Shared.Models {
   public class WebScraper {
     private List<string> required;
     private string url;
-
     public WebScraper(string url, params string[] required) {
       SetRequired(required);
       this.url = url;
@@ -24,7 +18,6 @@ namespace RuledWebScraper.Shared.Models {
       string html = null;
       try {
         HttpClient client = new();
-        client.DefaultRequestHeaders.Add("user-agent", "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.2; .NET CLR 1.0.3705;)");
 
         html = await client.GetStringAsync(GetUrl());
       } catch (Exception e) {
@@ -33,24 +26,31 @@ namespace RuledWebScraper.Shared.Models {
       return html;
     }
 
-    public bool AllTagsContainAttributes(string html, out Dictionary<int, bool> results, params string[] attributes) {
-      results = new();
+    public Dictionary<int, TestedTag> TestAllTags(string html, params string[] attributes) {
+      Dictionary<int, TestedTag> results = new Dictionary<int, TestedTag>();
       List<string> allTags = GetAllTags(html);
       int numOfTags = allTags.Count;
-      bool allTagsContainedAttributes = true;
+      Console.WriteLine(html);
 
-      for (int currentTagIndex = 0; currentTagIndex < numOfTags; currentTagIndex++) {
+      for (int tagIndex = 0; tagIndex < numOfTags; tagIndex++) {
         bool tagContainedAttributes = true;
+        List<string> missingAttributes = new List<string>();
 
-          if(!attributes.All(allTags[currentTagIndex].Contains)) {
+        string currentTag = allTags[tagIndex];
+        for (int attributeIndex = 0; attributeIndex < attributes.Length; attributeIndex++) {
+
+          string currentAttribute = attributes[attributeIndex];
+          if (!currentTag.Contains(currentAttribute)) {
             tagContainedAttributes = false;
-            allTagsContainedAttributes = false;
+            missingAttributes.Add(currentAttribute);
           }
+        }
 
-        results.Add(currentTagIndex, tagContainedAttributes);
+        TestedTag testedTag = new TestedTag(currentTag, missingAttributes, tagContainedAttributes);
+        results.Add(tagIndex, testedTag);
       }
 
-      return allTagsContainedAttributes;
+      return results;
     }
 
     public List<string> GetAllTags(string html) {
@@ -97,6 +97,5 @@ namespace RuledWebScraper.Shared.Models {
     }
 
     #endregion
-
   }
 }

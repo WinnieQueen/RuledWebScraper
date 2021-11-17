@@ -1,4 +1,5 @@
 ﻿@page "/webscraper"
+@using RuledWebScraper.Shared.Models;
 
 <h1>Scrape Web</h1>
 
@@ -11,30 +12,29 @@
 </EditForm>
 
 @code {
-    RuledWebScraper.Shared.Models.WebScraper webScraper = new RuledWebScraper.Shared.Models.WebScraper("");
-    private string url { get; set; }
-    private string attributes { get; set; }
-    private string txt { get; set; } = "Submit a URL and some attributes (separated by spaces)";
+  RuledWebScraper.Shared.Models.WebScraper webScraper = new RuledWebScraper.Shared.Models.WebScraper("");
+  private string url { get; set; }
+  private string attributes { get; set; }
+  private string txt { get; set; } = "Submit a URL and some attributes (separated by spaces)";
 
 
-    private async void HandleSubmit() {
-        string[] atts = attributes.Split(" ");
-        webScraper.SetUrl(url);
-        webScraper.SetRequired(atts);
-        webScraper = new RuledWebScraper.Shared.Models.WebScraper(url, atts);
+  private async void HandleSubmit() {
+      string[] atts = attributes.Split(" ");
+      webScraper.SetUrl(url);
+      webScraper.SetRequired(atts);
+      webScraper = new RuledWebScraper.Shared.Models.WebScraper(url, atts);
 
-        Dictionary<int, bool> results = new Dictionary<int, bool>();
 
-        var html = await webScraper.GetHtmlFromPage();
+      string html = await webScraper.GetHtmlFromPage();
 
-        webScraper.AllTagsContainAttributes(html, out results, atts);
+      Dictionary<int, TestedTag> results = webScraper.TestAllTags(html, atts);
 
-        using (System.IO.StringReader reader = new System.IO.StringReader(html)) {
-            txt = "";
-            for (int i = 0; i < results.Count; i++) {
-                txt = txt + "\n" + results[i] + reader.ReadLine();
-                i++;
-            }
-        }
-    }
+      using (System.IO.StringReader reader = new System.IO.StringReader(html)) {
+          txt = "";
+          for (int i = 0; i < results.Count; i++) {
+              txt = txt + "\n" + results[i] + reader.ReadLine();
+              i++;
+          }
+      }
+  }
 }
