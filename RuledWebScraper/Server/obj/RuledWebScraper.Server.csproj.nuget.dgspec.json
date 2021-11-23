@@ -1,43 +1,39 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Ash\\Desktop\\New folder\\RuledWebScraper\\Server\\RuledWebScraper.Server.csproj": {}
+    "C:\\Users\\ashlynn.hilliard\\Desktop\\WebCrawlerWithRules\\RuledWebScraper\\Server\\RuledWebScraper.Server.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Ash\\Desktop\\New folder\\RuledWebScraper\\Client\\RuledWebScraper.Client.csproj": {
+    "C:\\Users\\ashlynn.hilliard\\Desktop\\WebCrawlerWithRules\\RuledWebScraper\\Client\\RuledWebScraper.Client.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Ash\\Desktop\\New folder\\RuledWebScraper\\Client\\RuledWebScraper.Client.csproj",
+        "projectUniqueName": "C:\\Users\\ashlynn.hilliard\\Desktop\\WebCrawlerWithRules\\RuledWebScraper\\Client\\RuledWebScraper.Client.csproj",
         "projectName": "RuledWebScraper.Client",
-        "projectPath": "C:\\Users\\Ash\\Desktop\\New folder\\RuledWebScraper\\Client\\RuledWebScraper.Client.csproj",
-        "packagesPath": "C:\\Users\\Ash\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Ash\\Desktop\\New folder\\RuledWebScraper\\Client\\obj\\",
+        "projectPath": "C:\\Users\\ashlynn.hilliard\\Desktop\\WebCrawlerWithRules\\RuledWebScraper\\Client\\RuledWebScraper.Client.csproj",
+        "packagesPath": "C:\\Users\\ashlynn.hilliard\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\ashlynn.hilliard\\Desktop\\WebCrawlerWithRules\\RuledWebScraper\\Client\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\",
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Ash\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\ashlynn.hilliard\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {},
-          "https://nuget.telerik.com/nuget": {}
+          "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Users\\Ash\\Desktop\\New folder\\RuledWebScraper\\Shared\\RuledWebScraper.Shared.csproj": {
-                "projectPath": "C:\\Users\\Ash\\Desktop\\New folder\\RuledWebScraper\\Shared\\RuledWebScraper.Shared.csproj"
+              "C:\\Users\\ashlynn.hilliard\\Desktop\\WebCrawlerWithRules\\RuledWebScraper\\Shared\\RuledWebScraper.Shared.csproj": {
+                "projectPath": "C:\\Users\\ashlynn.hilliard\\Desktop\\WebCrawlerWithRules\\RuledWebScraper\\Shared\\RuledWebScraper.Shared.csproj"
               }
             }
           }
@@ -79,7 +75,7 @@
           "downloadDependencies": [
             {
               "name": "Microsoft.NETCore.App.Runtime.browser-wasm",
-              "version": "[5.0.9, 5.0.9]"
+              "version": "[5.0.10, 5.0.10]"
             }
           ],
           "frameworkReferences": {
@@ -87,7 +83,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.401\\RuntimeIdentifierGraph.json"
         }
       },
       "runtimes": {
@@ -96,43 +92,39 @@
         }
       }
     },
-    "C:\\Users\\Ash\\Desktop\\New folder\\RuledWebScraper\\Server\\RuledWebScraper.Server.csproj": {
+    "C:\\Users\\ashlynn.hilliard\\Desktop\\WebCrawlerWithRules\\RuledWebScraper\\Server\\RuledWebScraper.Server.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Ash\\Desktop\\New folder\\RuledWebScraper\\Server\\RuledWebScraper.Server.csproj",
+        "projectUniqueName": "C:\\Users\\ashlynn.hilliard\\Desktop\\WebCrawlerWithRules\\RuledWebScraper\\Server\\RuledWebScraper.Server.csproj",
         "projectName": "RuledWebScraper.Server",
-        "projectPath": "C:\\Users\\Ash\\Desktop\\New folder\\RuledWebScraper\\Server\\RuledWebScraper.Server.csproj",
-        "packagesPath": "C:\\Users\\Ash\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Ash\\Desktop\\New folder\\RuledWebScraper\\Server\\obj\\",
+        "projectPath": "C:\\Users\\ashlynn.hilliard\\Desktop\\WebCrawlerWithRules\\RuledWebScraper\\Server\\RuledWebScraper.Server.csproj",
+        "packagesPath": "C:\\Users\\ashlynn.hilliard\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\ashlynn.hilliard\\Desktop\\WebCrawlerWithRules\\RuledWebScraper\\Server\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\",
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Ash\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\ashlynn.hilliard\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {},
-          "https://nuget.telerik.com/nuget": {}
+          "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Users\\Ash\\Desktop\\New folder\\RuledWebScraper\\Client\\RuledWebScraper.Client.csproj": {
-                "projectPath": "C:\\Users\\Ash\\Desktop\\New folder\\RuledWebScraper\\Client\\RuledWebScraper.Client.csproj"
+              "C:\\Users\\ashlynn.hilliard\\Desktop\\WebCrawlerWithRules\\RuledWebScraper\\Client\\RuledWebScraper.Client.csproj": {
+                "projectPath": "C:\\Users\\ashlynn.hilliard\\Desktop\\WebCrawlerWithRules\\RuledWebScraper\\Client\\RuledWebScraper.Client.csproj"
               },
-              "C:\\Users\\Ash\\Desktop\\New folder\\RuledWebScraper\\Shared\\RuledWebScraper.Shared.csproj": {
-                "projectPath": "C:\\Users\\Ash\\Desktop\\New folder\\RuledWebScraper\\Shared\\RuledWebScraper.Shared.csproj"
+              "C:\\Users\\ashlynn.hilliard\\Desktop\\WebCrawlerWithRules\\RuledWebScraper\\Shared\\RuledWebScraper.Shared.csproj": {
+                "projectPath": "C:\\Users\\ashlynn.hilliard\\Desktop\\WebCrawlerWithRules\\RuledWebScraper\\Shared\\RuledWebScraper.Shared.csproj"
               }
             }
           }
@@ -170,37 +162,33 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.401\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Ash\\Desktop\\New folder\\RuledWebScraper\\Shared\\RuledWebScraper.Shared.csproj": {
+    "C:\\Users\\ashlynn.hilliard\\Desktop\\WebCrawlerWithRules\\RuledWebScraper\\Shared\\RuledWebScraper.Shared.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Ash\\Desktop\\New folder\\RuledWebScraper\\Shared\\RuledWebScraper.Shared.csproj",
+        "projectUniqueName": "C:\\Users\\ashlynn.hilliard\\Desktop\\WebCrawlerWithRules\\RuledWebScraper\\Shared\\RuledWebScraper.Shared.csproj",
         "projectName": "RuledWebScraper.Shared",
-        "projectPath": "C:\\Users\\Ash\\Desktop\\New folder\\RuledWebScraper\\Shared\\RuledWebScraper.Shared.csproj",
-        "packagesPath": "C:\\Users\\Ash\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Ash\\Desktop\\New folder\\RuledWebScraper\\Shared\\obj\\",
+        "projectPath": "C:\\Users\\ashlynn.hilliard\\Desktop\\WebCrawlerWithRules\\RuledWebScraper\\Shared\\RuledWebScraper.Shared.csproj",
+        "packagesPath": "C:\\Users\\ashlynn.hilliard\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\ashlynn.hilliard\\Desktop\\WebCrawlerWithRules\\RuledWebScraper\\Shared\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\",
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Ash\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\ashlynn.hilliard\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {},
-          "https://nuget.telerik.com/nuget": {}
+          "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net5.0": {
@@ -238,7 +226,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.401\\RuntimeIdentifierGraph.json"
         }
       }
     }

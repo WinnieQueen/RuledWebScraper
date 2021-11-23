@@ -4,91 +4,80 @@
 <h1>Scrape Web</h1>
 
 <body>
-			<EditForm OnSubmit="HandleSubmit" Model="webScraper">
-						<div class="form-group">
-									<InputText @bind-Value="url" placeholder="URL to test"></InputText>
-									<p class="validation-message" hidden="@urlErrorIsHidden">Must input a valid URL</p>
-						</div>
-						<div class="form-group">
-									<InputText @bind-Value="attributes" placeholder="Attributes to test for, separated by spaces."></InputText>
-									<p class="validation-message" hidden="@attsErrorIsHidden">Must have at least one attribute</p>
-						</div>
-						<div class="form-group">
-									<button type="submit">Submit</button>
-						</div>
-			</EditForm>
-			@if (results is not null)
-			{
-						<table class="table" id="myTable">
-									<thead>
-												<tr>
-															<th>Passed</th>
-															<th>Missing Attributes</th>
-															<th>Tested Tag</th>
-												</tr>
-									</thead>
-									<tbody>
-												@foreach (TestedTag testedTag in results.Values)
-												{
-															<tr>
-																		<td>@testedTag.IsPassing()</td>
-																		<td>@testedTag.GetMissingAttributesAsString()</td>
-																		<td>@testedTag.GetTag()</td>
-															</tr>
-												}
-									</tbody>
-						</table>
-			}
+    <EditForm OnSubmit="HandleSubmit" Model="webScraper">
+        <div class="form-group">
+            <InputText class="input-group-text" style="width:50%"  @bind-Value="url" placeholder="URL to test"></InputText>
+            <p class="validation-message" hidden="@urlErrorIsHidden">Must input a valid URL</p>
+        </div>
+        <div class="form-group">
+            <InputText class="input-group-text" style="width:50%" @bind-Value="attributes" placeholder="Attributes to test for, separated by spaces."></InputText>
+            <p class="validation-message" hidden="@attsErrorIsHidden">Must have at least one attribute</p>
+        </div>
+        <div class="form-group">
+            <button type="submit">Submit</button>
+        </div>
+    </EditForm>
+    @if (results is not null) {
+        <table class="table" id="myTable">
+            <thead>
+                <tr>
+                    <th>Passed</th>
+                    <th>Missing Attributes</th>
+                    <th>Tested Tag</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (TestedTag testedTag in results.Values) {
+                    <tr>
+                        <td>@testedTag.IsPassing()</td>
+                        <td>@testedTag.GetMissingAttributesAsString()</td>
+                        <td>@testedTag.GetTag()</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
 </body>
 
 @code {
-			RuledWebScraper.Shared.Models.WebScraper webScraper = new RuledWebScraper.Shared.Models.WebScraper("");
-			private string url { get; set; }
-			private bool urlErrorIsHidden { get; set; } = true;
-			private bool attsErrorIsHidden { get; set; } = true;
-			private string attributes { get; set; }
-			private string txt { get; set; } = "Submit a URL and some attributes (separated by spaces)";
-			Dictionary<int, TestedTag> results;
+    RuledWebScraper.Shared.Models.WebScraper webScraper = new RuledWebScraper.Shared.Models.WebScraper("");
+    private string url { get; set; }
+    private bool urlErrorIsHidden { get; set; } = true;
+    private bool attsErrorIsHidden { get; set; } = true;
+    private string attributes { get; set; }
+    private string txt { get; set; } = "Submit a URL and some attributes (separated by spaces)";
+    Dictionary<int, TestedTag> results;
 
-			private async void HandleSubmit()
-			{
-						urlErrorIsHidden = true;
-						attsErrorIsHidden = true;
-						if (attributes == null || attributes.Trim().Equals(""))
-						{
-									attsErrorIsHidden = false;
-						}
-						try
-						{
-									webScraper.SetUrl(url);
-									string[] atts = attributes.Split(" ");
-									webScraper.SetRequired(atts);
-									webScraper = new RuledWebScraper.Shared.Models.WebScraper(url, atts);
+    private async void HandleSubmit() {
+        urlErrorIsHidden = true;
+        attsErrorIsHidden = true;
+        if (attributes == null || attributes.Trim().Equals("")) {
+            attsErrorIsHidden = false;
+        }
+        try {
+            webScraper.SetUrl(url);
+            string[] atts = attributes.Split(" ");
+            webScraper.SetRequired(atts);
+            webScraper = new RuledWebScraper.Shared.Models.WebScraper(url, atts);
 
-									string html = await webScraper.GetHtmlFromPage();
+            string html = await webScraper.GetHtmlFromPage();
 
-									results = webScraper.TestAllTags(html, atts);
+            results = webScraper.TestAllTags(html, atts);
 
-									using (System.IO.StringReader reader = new System.IO.StringReader(html))
-									{
-												txt = "";
-												for (int i = 0; i < results.Count; i++)
-												{
-															txt = txt + "\n" + results[i] + reader.ReadLine();
-															i++;
-												}
-									}
+            using (System.IO.StringReader reader = new System.IO.StringReader(html)) {
+                txt = "";
+                for (int i = 0; i < results.Count; i++) {
+                    txt = txt + "\n" + results[i] + reader.ReadLine();
+                    i++;
+                }
+            }
 
-						}
-						catch (ArgumentException ae)
-						{
-									Console.WriteLine(ae.Message);
-									urlErrorIsHidden = false;
-						}
-						catch (Exception e)
-						{
-									Console.WriteLine(e.Message);
-						}
-						StateHasChanged();
-			}
+        } catch (ArgumentException ae) {
+            Console.WriteLine(ae.Message);
+            urlErrorIsHidden = false;
+        } catch (Exception e) {
+            Console.WriteLine(e.Message);
+        }
+        StateHasChanged();
+    }
 }
