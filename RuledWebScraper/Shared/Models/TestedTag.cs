@@ -26,11 +26,7 @@ namespace RuledWebScraper.Shared.Models {
          string allAtts = "";
          if (missingAttributes.Count > 0)
          {
-            allAtts = missingAttributes[0];
-            foreach (string attribute in missingAttributes)
-            {
-               allAtts += ", " + attribute;
-            }
+            allAtts = string.Join(", ", missingAttributes);
          }
          return allAtts;
       }

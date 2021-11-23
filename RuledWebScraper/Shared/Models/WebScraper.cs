@@ -45,7 +45,6 @@ namespace RuledWebScraper.Shared.Models {
 
             string currentTag = allTags[tagIndex];
 
-            Console.WriteLine(tagIndex + ": " + currentTag);
             for (int attributeIndex = 0; attributeIndex < attributes.Length; attributeIndex++)
             {
 
@@ -53,6 +52,7 @@ namespace RuledWebScraper.Shared.Models {
                if (!currentTag.Contains(currentAttribute))
                {
                   tagContainedAttributes = false;
+                  Console.WriteLine(currentTag + " Added " + currentAttribute);
                   missingAttributes.Add(currentAttribute);
                }
             }
@@ -71,27 +71,29 @@ namespace RuledWebScraper.Shared.Models {
          doc.LoadHtml(html);
          IEnumerable<HtmlNode> coll = doc.DocumentNode.Descendants(HtmlDocument.MaxDepthLevel);
 
-         List<string> nodeList = new List<string>();
-         LevelOneNodes(coll, ref nodeList);
+         //List<string> nodeList = new List<string>();
+         //LevelOneNodes(coll, ref nodeList);
+
+         List<string> nodeList = LevelOneNodes(coll);
 
          foreach (string node in nodeList)
          {
             allTags.Add(node);
-            Console.WriteLine("Node: " + node);
          }
 
          return allTags;
       }
 
-      private void LevelOneNodes(IEnumerable<HtmlNode> nodeList, ref List<string> finalList)
+      private List<string> LevelOneNodes(IEnumerable<HtmlNode> nodeList)
       {
+         List<string> finalList = new List<string>();
          foreach (HtmlNode node in nodeList)
          {
-            if (node.OuterHtml.StartsWith("<") && !node.OuterHtml.StartsWith("<!--"))
+            if (node.OuterHtml.StartsWith("<") && !node.OuterHtml.StartsWith("<!--") && !node.OuterHtml.StartsWith("<!doctype") && !node.OuterHtml.StartsWith("<meta"))
             {
                if (node.HasChildNodes)
                {
-                  LevelOneNodes(node.ChildNodes, ref finalList);
+                  finalList.AddRange(LevelOneNodes(node.ChildNodes));
                }
                else
                {
@@ -99,7 +101,25 @@ namespace RuledWebScraper.Shared.Models {
                }
             }
          }
+         return finalList;
       }
+      //private void LevelOneNodes(IEnumerable<HtmlNode> nodeList, ref List<string> finalList)
+      //{
+      //   foreach (HtmlNode node in nodeList)
+      //   {
+      //      if (node.OuterHtml.StartsWith("<") && !node.OuterHtml.StartsWith("<!--") && !node.OuterHtml.StartsWith("<!doctype") && !node.OuterHtml.StartsWith("<meta"))
+      //      {
+      //         if (node.HasChildNodes)
+      //         {
+      //            LevelOneNodes(node.ChildNodes, ref finalList);
+      //         }
+      //         else
+      //         {
+      //            finalList.Add(node.OuterHtml);
+      //         }
+      //      }
+      //   }
+      //}
 
       public string GetUrl()
       {

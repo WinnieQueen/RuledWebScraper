@@ -3,18 +3,26 @@
 
 <h1>Scrape Web</h1>
 
-
-<EditForm OnSubmit="HandleSubmit" Model="webScraper">
-			<InputText @bind-Value="url">Url</InputText>
-			<InputText @bind-Value="attributes">Attributes</InputText>
-			<button type="submit">Submit</button>
-
+<body>
+			<EditForm OnSubmit="HandleSubmit" Model="webScraper">
+						<div class="form-group">
+									<InputText @bind-Value="url" placeholder="URL to test"></InputText>
+									<p class="validation-message" hidden="@urlErrorIsHidden">Must input a valid URL</p>
+						</div>
+						<div class="form-group">
+									<InputText @bind-Value="attributes" placeholder="Attributes to test for, separated by spaces."></InputText>
+									<p class="validation-message" hidden="@attsErrorIsHidden">Must have at least one attribute</p>
+						</div>
+						<div class="form-group">
+									<button type="submit">Submit</button>
+						</div>
+			</EditForm>
 			@if (results is not null)
 			{
 						<table class="table" id="myTable">
 									<thead>
 												<tr>
-															<th>Passed Test</th>
+															<th>Passed</th>
 															<th>Missing Attributes</th>
 															<th>Tested Tag</th>
 												</tr>
@@ -31,38 +39,53 @@
 									</tbody>
 						</table>
 			}
-
-
-</EditForm>
+</body>
 
 @code {
 			RuledWebScraper.Shared.Models.WebScraper webScraper = new RuledWebScraper.Shared.Models.WebScraper("");
 			private string url { get; set; }
+			private bool urlErrorIsHidden { get; set; } = true;
+			private bool attsErrorIsHidden { get; set; } = true;
 			private string attributes { get; set; }
 			private string txt { get; set; } = "Submit a URL and some attributes (separated by spaces)";
 			Dictionary<int, TestedTag> results;
 
 			private async void HandleSubmit()
 			{
-						string[] atts = attributes.Split(" ");
-						webScraper.SetUrl(url);
-						webScraper.SetRequired(atts);
-						webScraper = new RuledWebScraper.Shared.Models.WebScraper(url, atts);
-
-
-						string html = await webScraper.GetHtmlFromPage();
-
-						results = webScraper.TestAllTags(html, atts);
-
-						using (System.IO.StringReader reader = new System.IO.StringReader(html))
+						urlErrorIsHidden = true;
+						attsErrorIsHidden = true;
+						if (attributes == null || attributes.Trim().Equals(""))
 						{
-									txt = "";
-									for (int i = 0; i < results.Count; i++)
-									{
-												txt = txt + "\n" + results[i] + reader.ReadLine();
-												i++;
-									}
+									attsErrorIsHidden = false;
 						}
+						try
+						{
+									webScraper.SetUrl(url);
+									string[] atts = attributes.Split(" ");
+									webScraper.SetRequired(atts);
+									webScraper = new RuledWebScraper.Shared.Models.WebScraper(url, atts);
+
+									string html = await webScraper.GetHtmlFromPage();
+
+									results = webScraper.TestAllTags(html, atts);
+
+									using (System.IO.StringReader reader = new System.IO.StringReader(html))
+									{
+												txt = "";
+												for (int i = 0; i < results.Count; i++)
+												{
+															txt = txt + "\n" + results[i] + reader.ReadLine();
+															i++;
+												}
+									}
+
+						}
+						catch (ArgumentException ae)
+						{
+									urlErrorIsHidden = false;
+						}
+						catch (Exception e)
+						{	}
 						StateHasChanged();
 			}
 }
