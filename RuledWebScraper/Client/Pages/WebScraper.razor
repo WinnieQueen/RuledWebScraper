@@ -82,10 +82,13 @@
 						}
 						catch (ArgumentException ae)
 						{
+									Console.WriteLine(ae.Message);
 									urlErrorIsHidden = false;
 						}
 						catch (Exception e)
-						{	}
+						{
+									Console.WriteLine(e.Message);
+						}
 						StateHasChanged();
 			}
 }
