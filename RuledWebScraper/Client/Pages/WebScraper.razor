@@ -5,36 +5,64 @@
 
 
 <EditForm OnSubmit="HandleSubmit" Model="webScraper">
-    <InputText @bind-Value="url">Url</InputText>
-    <InputText @bind-Value="attributes">Attributes</InputText>
-    <button type="submit">Submit</button>
-    <InputTextArea readonly="readonly" @bind-Value="txt">Text</InputTextArea>
+			<InputText @bind-Value="url">Url</InputText>
+			<InputText @bind-Value="attributes">Attributes</InputText>
+			<button type="submit">Submit</button>
+
+			@if (results is not null)
+			{
+						<table class="table" id="myTable">
+									<thead>
+												<tr>
+															<th>Passed Test</th>
+															<th>Missing Attributes</th>
+															<th>Tested Tag</th>
+												</tr>
+									</thead>
+									<tbody>
+												@foreach (TestedTag testedTag in results.Values)
+												{
+															<tr>
+																		<td>@testedTag.IsPassing()</td>
+																		<td>@testedTag.GetMissingAttributesAsString()</td>
+																		<td>@testedTag.GetTag()</td>
+															</tr>
+												}
+									</tbody>
+						</table>
+			}
+
+
 </EditForm>
 
 @code {
-  RuledWebScraper.Shared.Models.WebScraper webScraper = new RuledWebScraper.Shared.Models.WebScraper("");
-  private string url { get; set; }
-  private string attributes { get; set; }
-  private string txt { get; set; } = "Submit a URL and some attributes (separated by spaces)";
+			RuledWebScraper.Shared.Models.WebScraper webScraper = new RuledWebScraper.Shared.Models.WebScraper("");
+			private string url { get; set; }
+			private string attributes { get; set; }
+			private string txt { get; set; } = "Submit a URL and some attributes (separated by spaces)";
+			Dictionary<int, TestedTag> results;
+
+			private async void HandleSubmit()
+			{
+						string[] atts = attributes.Split(" ");
+						webScraper.SetUrl(url);
+						webScraper.SetRequired(atts);
+						webScraper = new RuledWebScraper.Shared.Models.WebScraper(url, atts);
 
 
-  private async void HandleSubmit() {
-      string[] atts = attributes.Split(" ");
-      webScraper.SetUrl(url);
-      webScraper.SetRequired(atts);
-      webScraper = new RuledWebScraper.Shared.Models.WebScraper(url, atts);
+						string html = await webScraper.GetHtmlFromPage();
 
+						results = webScraper.TestAllTags(html, atts);
 
-      string html = await webScraper.GetHtmlFromPage();
-
-      Dictionary<int, TestedTag> results = webScraper.TestAllTags(html, atts);
-
-      using (System.IO.StringReader reader = new System.IO.StringReader(html)) {
-          txt = "";
-          for (int i = 0; i < results.Count; i++) {
-              txt = txt + "\n" + results[i] + reader.ReadLine();
-              i++;
-          }
-      }
-  }
+						using (System.IO.StringReader reader = new System.IO.StringReader(html))
+						{
+									txt = "";
+									for (int i = 0; i < results.Count; i++)
+									{
+												txt = txt + "\n" + results[i] + reader.ReadLine();
+												i++;
+									}
+						}
+						StateHasChanged();
+			}
 }
